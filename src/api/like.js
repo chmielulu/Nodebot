@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 const domElements = require('../dom/domElements');
 
-const liker = async (page, { likesPerHashtag, breakBetweenLikes }) => {
+const like = async (page, { likesPerHashtag, breakBetweenLikes }) => {
    await page.waitFor(1000);
 
    const posts = await page.$$(domElements.hashtag.recentPosts);
@@ -12,7 +12,7 @@ const liker = async (page, { likesPerHashtag, breakBetweenLikes }) => {
       await post.click();
 
       await page.waitFor(domElements.hashtag.dialogPost);
-      await page.waitFor(1000);
+      await page.waitFor(5000);
 
       const isLikeable = await page.$(domElements.hashtag.likeButton);
 
@@ -21,7 +21,7 @@ const liker = async (page, { likesPerHashtag, breakBetweenLikes }) => {
          await console.log(`Liked post ${page.url()}`);
       }
 
-      await page.waitFor(3000);
+      await page.waitFor(4000);
 
       await page.click(domElements.hashtag.closeButton);
 
@@ -29,4 +29,4 @@ const liker = async (page, { likesPerHashtag, breakBetweenLikes }) => {
    }
 };
 
-module.exports = liker;
+module.exports = like;

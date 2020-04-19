@@ -1,17 +1,21 @@
+const info = require('../info/info')();
+
 const goTo = async (url, page) => {
-   console.log(`Try connect with ${url}`);
+   page.waitFor(10000);
+   
+   console.log(info.tryConnect + url);
 
    await page
       .goto(url, {
          waitUntil: 'networkidle2',
       })
       .then(() => {
-         console.log('Connected');
+         console.log(info.successfulConnect);
       })
       .catch(() => {
-         Error('Something went wrong!');
+         Error(info.error);
       });
-   
+
    await page.waitFor(3000);
 };
 

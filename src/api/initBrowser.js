@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
+const info = require('../info/info')();
 
-const initBrowser = async (debug) => {
-   console.log('Opening browser...');
+const initBrowser = async (debug, userAgent = null) => {
+   console.log(info.tryOpenBrowser);
 
    const browser = await puppeteer.launch({
       headless: !debug,
@@ -10,13 +11,17 @@ const initBrowser = async (debug) => {
    const page = await browser
       .newPage()
       .then((page) => {
-         console.log('Browser open!');
+         console.log(info.openBrowser);
          return page;
       })
       .catch((err) => {
-         console.log('Something went wrong :(');
-         return err;
+         console.log(info.error);
+         process.exit();
       });
+
+   if (userAgent) {
+      await page.setUserAgent(userAgent);
+   }
 
    return page;
 };

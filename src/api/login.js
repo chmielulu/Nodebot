@@ -1,12 +1,20 @@
 const domElements = require('../dom/domElements');
+const info = require('../info/info')();
 
 const tryLogin = async (page, username, password) => {
-   await page.type(domElements.loginForm.username, username, { delay: 100 });
-   await page.type(domElements.loginForm.password, password, { delay: 100 });
+   await page.type(domElements.loginForm.username, username, { delay: 200 });
+
+   await page.waitFor(5000);
+
+   await page.type(domElements.loginForm.password, password, { delay: 200 });
+
+   await page.waitFor(3000);
+
    await page.click(domElements.loginForm.submit);
 
    await page.waitFor(domElements.home.searchInput);
-   const isLogged = page.$(domElements.home.searchInput);
+
+   const isLogged = await page.$(domElements.home.searchInput);
 
    if (!isLogged) {
       return false;
@@ -16,17 +24,19 @@ const tryLogin = async (page, username, password) => {
 };
 
 const login = async (page, { username, password }) => {
-   console.log('Try login');
+   console.log(info.tryLogin);
 
    await tryLogin(page, username, password)
       .then(() => {
-         console.log('Logged');
+         console.log(info.successfulLogin);
       })
-      .catch(() => {
-         console.log(
-            'Something went wrong. You have bad connection or you put bad username/password',
-         );
+      .catch((err) => {
+         console.log(info.failedLogin);
+
+         process.exit(1);
       });
+
+   page.waitFor(5000);
 };
 
 module.exports = login;
