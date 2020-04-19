@@ -1,6 +1,6 @@
 const goTo = async (url, page) => {
    console.log(`Try connect with ${url}`);
-   
+
    await page
       .goto(url, {
          waitUntil: 'networkidle2',
@@ -9,8 +9,10 @@ const goTo = async (url, page) => {
          console.log('Connected');
       })
       .catch(() => {
-         console.log('Something went wrong :(');
+         Error('Something went wrong!');
       });
+   
+   await page.waitFor(3000);
 };
 
 module.exports = goTo;

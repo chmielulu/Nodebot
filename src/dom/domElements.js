@@ -7,4 +7,10 @@ module.exports = {
    home: {
       searchInput: 'nav input[placeholder="Search"]',
    },
+   hashtag: {
+      recentPosts: 'article > div:nth-of-type(2) img',
+      dialogPost: 'div[role="dialog"] article > div img',
+      likeButton: 'button > svg[aria-label="Like"]',
+      closeButton: 'button > svg[aria-label="Close"]',
+   },
 };
