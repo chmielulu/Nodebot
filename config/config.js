@@ -1,9 +1,9 @@
 module.exports = {
-   message: 'Hello world!',
    debug: true,
-   username: 'chmielewski.testing',
-   hashtags: ['cars', 'warsaw', 'szczecin'],
-   likesPerHashtag: 10,
-   breakBetweenLikes: 30000,
-   breakBetweenHashtags: 5000,
+   username: 'username' /* username */,
+   password: 'password' /* password */,
+   hashtags: ['cars', 'warsaw', 'szczecin'] /* hashtags */,
+   likesPerHashtag: 10 /* likes for one hashtag */,
+   breakBetweenLikes: 30000 /* breakdown between likes */,
+   breakBetweenHashtags: 5000 /* breakdown between hashtags */,
 };

@@ -15,7 +15,7 @@ const tryLogin = async (page, username, password) => {
    return true;
 };
 
-const login = async (page, { username, password = 'klaudiA16483' }) => {
+const login = async (page, { username, password }) => {
    console.log('Try login');
 
    await tryLogin(page, username, password)
