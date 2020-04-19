@@ -1,9 +1,16 @@
-const InstagramUrl = 'https://instagram.com/';
-
-const goTo = async (page) => {
-   await page.goto(InstagramUrl, {
-      waitUntil: 'networkidle2',
-   });
+const goTo = async (url, page) => {
+   console.log(`Try connect with ${url}`);
+   
+   await page
+      .goto(url, {
+         waitUntil: 'networkidle2',
+      })
+      .then(() => {
+         console.log('Connected');
+      })
+      .catch(() => {
+         console.log('Something went wrong :(');
+      });
 };
 
 module.exports = goTo;
