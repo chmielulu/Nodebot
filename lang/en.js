@@ -7,5 +7,7 @@ module.exports = {
    successfulLogin: 'Logged',
    failedLogin: 'Something went wrong. You have bad connection or you put bad username/password',
    connected: 'connected',
+   likedPost: 'Liked post ',
+   commentPost: 'Comment post ',
    error: 'Something went wrong ;(',
 };

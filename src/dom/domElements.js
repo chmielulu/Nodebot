@@ -12,5 +12,7 @@ module.exports = {
       dialogPost: 'div[role="dialog"] article > div img',
       likeButton: 'button > svg[aria-label="Like"]',
       closeButton: 'button > svg[aria-label="Close"]',
+      commentTextArea: 'div[role="dialog"] textarea',
+      commentButton: 'div[role="dialog"] form button',
    },
 };

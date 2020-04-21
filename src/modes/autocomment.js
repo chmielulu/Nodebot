@@ -3,14 +3,14 @@
 const initBrowser = require('../api/initBrowser');
 const goTo = require('../api/goTo');
 const login = require('../api/login');
-const like = require('../api/like');
+const comment = require('../api/comment');
 
 const InstagramUrl = 'https://instagram.com/';
 const InstagramHashtag = (hashtag) =>
    `https://www.instagram.com/explore/tags/${hashtag}/`;
 
-const autolike = async (config) => {
-   const page = await initBrowser(config.debug, config.userAgent);
+const autocomment = async (config) => {
+   const page = await initBrowser(InstagramUrl);
    await goTo(InstagramUrl, page);
 
    await login(page, {
@@ -23,13 +23,16 @@ const autolike = async (config) => {
    for (const hashtag of config.hashtags) {
       await goTo(InstagramHashtag(hashtag), page);
 
-      await like(page, {
-         likesPerHashtag: config.likesPerHashtag,
-         breakBetweenLikes: config.breakBetweenLikes,
+      await page.waitFor(4000);
+
+      await comment(page, {
+         commentsPerHashtag: config.commentsPerHashtag,
+         breakBetweenComments: config.breakBetweenComments,
+         comments: config.comments,
       });
 
-      await page.waitFor(config.breakBetweenHashtags);
+      await page.waitFor(config.breakBeetwenHashtags);
    }
 };
 
-module.exports = autolike;
+module.exports = autocomment;
