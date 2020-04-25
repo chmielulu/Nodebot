@@ -13,6 +13,6 @@ module.exports = {
       likeButton: 'button > svg[aria-label="Like"]',
       closeButton: 'button > svg[aria-label="Close"]',
       commentTextArea: 'div[role="dialog"] textarea',
-      commentButton: 'div[role="dialog"] form button',
+      commentSendButton: 'div[role="dialog"] form button',
    },
 };

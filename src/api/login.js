@@ -36,7 +36,7 @@ const login = async (page, { username, password }) => {
          process.exit(1);
       });
 
-   page.waitFor(5000);
+   await page.waitFor(5000);
 };
 
 module.exports = login;
