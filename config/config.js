@@ -1,8 +1,7 @@
 module.exports = {
    debug: true /* True means visible browser, false unvisible */,
    lang: 'en' /* Log's language in console */,
-   userAgent:
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:70.0) Gecko/20100101 Firefox/70.0' /* Optional */,
+   userAgent: null /* Optional */,
    username: 'chmielewski.testing1' /* username */,
    password: 'lovepolanD123' /* password */,
    hashtags: ['cars', 'warsaw', 'szczecin'] /* hashtags */,

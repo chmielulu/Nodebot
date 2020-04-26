@@ -11,6 +11,7 @@ const getRecentPosts = require('./api/getRecentPosts');
 const openPost = require('./api/openPost');
 const closePost = require('./api/closePost');
 const randomTime = require('./api/randomTime');
+const autoScroll = require('./api/autoScroll');
 
 const InstagramUrl = 'https://instagram.com/';
 const InstagramHashtag = (hashtag) => `${InstagramUrl}explore/tags/${hashtag}/`;
@@ -37,7 +38,7 @@ const bot = async (config) => {
          page,
       );
 
-      for (const i = 0; i <= config.likesPerHashtag - 1; i++) {
+      for (let i = 0; i <= config.likesPerHashtag - 1; i++) {
          await waitFor(
             randomTime(
                config.breakBetweenActions[0],
@@ -81,9 +82,16 @@ const bot = async (config) => {
          }
 
          await closePost(domElements.hashtag.closeButton, page);
+
       }
 
-      await waitFor(config.breakBetweenHashtags, page);
+      await waitFor(
+         randomTime(
+            config.breakBetweenHashtags[0],
+            config.breakBetweenHashtags[1],
+         ),
+         page,
+      );
    }
 };
 
