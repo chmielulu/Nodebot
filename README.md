@@ -20,3 +20,7 @@ You can configure Nodebot using the config.js file in the Nodebot/config directo
 ## Launch bot
 
 You can launch bot using command `node index.js` in Nodebot directory
+
+## Warning
+
+This is currently a Beta and it is not recommended to use on a real Instagram account
