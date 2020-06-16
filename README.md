@@ -2,7 +2,7 @@
 
 ## Warning
 
-This is currently a Beta and it is not recommended to use it on a real Instagram account
+This is currently a Alpha and it is not recommended to use it on a real Instagram account
 
 ## Installation
 
